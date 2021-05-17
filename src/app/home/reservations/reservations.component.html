@@ -1,0 +1,101 @@
+<div class="table-container" *ngIf="dataSource.data.length > 0">
+
+  <ng-container *ngIf="loading">
+    <div class="uploader-status">
+      <mat-spinner style="margin:0 auto;"></mat-spinner>
+    </div>
+  </ng-container>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="resemployee_fk">
+
+  <!-- User Column -->
+  <ng-container matColumnDef="resemployee_fk">
+    <th mat-header-cell *matHeaderCellDef>Created by</th>
+    <td mat-cell *matCellDef="let element">
+      {{element.user.first_name}} {{element.user.last_name }}</td>
+  </ng-container>
+
+  <!-- Workplace Column -->
+  <ng-container matColumnDef="workplace_fk">
+    <th mat-header-cell *matHeaderCellDef>Workplace #</th>
+    <td mat-cell *matCellDef="let element"
+     matTooltip="Floor: {{element?.workplace?.floor}}" >
+      Room: {{element?.workplace?.room}},
+      Desk: {{element?.workplace?.desk}}
+    </td>
+  </ng-container>
+
+  <!-- Range Column -->
+  <ng-container matColumnDef="requested_for">
+    <th mat-header-cell *matHeaderCellDef class="th-text-center">Duration</th>
+    <td mat-cell *matCellDef="let element">
+      <ul style="list-style-type:none; margin-top: 15px;">
+        <li *ngFor="let date of element['requested_for']">
+          {{ datePipe.transform( date.value, "dd-MMM-yyyy hh:mm" ) }}
+        </li>
+      </ul>
+    </td>
+  </ng-container>
+
+  <!-- ApprovedBy Column -->
+  <ng-container matColumnDef="approvedBy">
+    <th mat-header-cell *matHeaderCellDef>Approved by</th>
+    <td mat-cell *matCellDef="let element"> {{element?.approvedBy?.first_name}} {{element?.approvedBy?.last_name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="approved">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon
+        *ngIf="element.status === 'New'"
+        class="pointer"
+        matTooltip="Approve request"
+        aria-hidden="false"
+        (click)="approve(element)"
+      >pending_outline</mat-icon>
+      <mat-icon
+        *ngIf="element.status === 'Approved'"
+        class="pointer"
+        matTooltip="Approved"
+        aria-hidden="false"
+      >done</mat-icon>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="equipment">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon
+        class="pointer"
+        matTooltip="Click to see the desk equipment"
+        aria-hidden="false"
+        (click)="openEquipment(element.workplace_fk)"
+      >contact_support</mat-icon>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon
+        class="pointer"
+        matTooltip="Delete request"
+        aria-label="delete"
+        aria-hidden="false"
+        (click)="delete(element.id)"
+      >delete_outline</mat-icon>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+
+<ng-container *ngIf="dataSource.data.length === 0">
+  <mat-card>
+    <mat-card-content>
+      <span class="text">There is no data to display
+      </span></mat-card-content>
+  </mat-card>
+</ng-container>

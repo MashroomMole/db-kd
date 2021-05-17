@@ -1,0 +1,25 @@
+<ng-container *ngIf="loading">
+  <div class="uploader-status">
+    <mat-spinner style="margin:0 auto;"></mat-spinner>
+  </div>
+</ng-container>
+<ng-container
+  *ngIf="equipment as model">
+  <div class="user-info-dialog">
+    <h1 mat-dialog-title>Desk nr.{{model.desk}} at room {{model.room}} is equipped with:</h1>
+    <div class="form-row">
+      <mat-form-field>
+        <ul>
+          <li *ngFor="let item of model.equipment" class="">
+            {{item.quantity}} {{ item.description }}(s)
+          </li>
+        </ul>
+<!--        <ng-template *ngFor="let item of model.equipment" class="">-->
+<!--          {{item.quantity}} {{ item.description }}(s)-->
+<!--        </ng-template>-->
+      </mat-form-field>
+    </div>
+  </div>
+
+</ng-container>
+<ng-container *ngIf="equipment === null && !loading">There is no data available</ng-container>

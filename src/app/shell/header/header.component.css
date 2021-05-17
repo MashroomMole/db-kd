@@ -1,0 +1,19 @@
+.logo {
+  width: 73px;
+  height: 64px;
+  padding: 0;
+  margin: 0 15px;
+  background: url("../../../assets/images/dummy_logo.png") no-repeat 0 40%;
+  background-size: 73px 34px;
+}
+
+.space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1 1 auto;
+}
+
+.space-between h1 {
+  flex: 1 1 auto;
+}

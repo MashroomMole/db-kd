@@ -1,0 +1,26 @@
+.admin-container {
+  display: flex;
+}
+
+.admin-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.search-container{
+  width: 100%;
+  display: flex;
+}
+
+.criteria {
+
+}
+
+.result {
+
+}
+mat-card.mat-card.mat-focus-indicator.search-container {
+  height: 900px;
+  background-color: #faf9f7;
+}

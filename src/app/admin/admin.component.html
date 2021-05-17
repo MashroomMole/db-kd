@@ -1,0 +1,18 @@
+    <mat-card class="search-container"
+    >
+      <mat-card-content>
+        <div class="criteria">
+          <app-search-criteria>
+          </app-search-criteria>
+        </div>
+
+        <div class="result">
+          <app-reservations
+            [result]="searchResult$ | async"
+            [loading]="loading$ | async">
+          </app-reservations>
+        </div>
+      </mat-card-content>
+
+
+    </mat-card>

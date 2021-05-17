@@ -1,0 +1,40 @@
+<div class="home-container">
+  <div class="column">
+    <mat-card class="requests-container">
+      <div class="header-container">
+        <mat-card-header>
+          <mat-card-title>Requests</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="openRequestDialog()">NEW REQUEST</button>
+        </mat-card-actions>
+      </div>
+      <app-requests
+        [requests]="requests$ | async"
+        [loading] = "loadingRequests$ | async"
+        (deleteAction)="handleDelete($event)"
+        (approveAction)="handleApprove($event)"></app-requests>
+    </mat-card>
+  </div>
+
+  <div class="column">
+    <mat-card class="reservations-container">
+    <div class="header-container">
+        <mat-card-header>
+          <mat-card-title>Reservations</mat-card-title>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="openReservationDialog()">NEW RESERVATION</button>
+        </mat-card-actions>
+    </div>
+      <app-reservations
+        [reservations]="reservations$ | async"
+        [loading]="loadingReservations$ | async"
+        (deleteAction)="handleDeleteReservations($event)"
+        (approveAction)="handleReservationApprove($event)"
+        (equipment)="handleOpenEquipment($event)"
+       ></app-reservations>
+    </mat-card>
+  </div>
+</div>

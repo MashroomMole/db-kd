@@ -1,0 +1,41 @@
+h1 {
+  color: lightslategray;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.uploader-status ::ng-deep .mat-spinner circle {
+  stroke: lightslategray;
+}
+
+.home-container {
+  display: flex;
+}
+
+.home-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  justify-content: center;
+  /*float: left;*/
+  width: 100%;
+  align-content: center;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.requests-container {
+  background-color: #faf9f7;
+  height: 900px;
+}
+
+.reservations-container {
+  background-color: #faf9f7;
+  height: 900px;
+}

@@ -1,0 +1,29 @@
+<div class="dialog-form">
+  <form
+      [formGroup]="form"
+    >
+      <h1 mat-dialog-title>Please, submit your request</h1>
+      <mat-dialog-content>
+        <mat-radio-group
+          aria-label="Select a work mode"
+          formControlName="type">
+          <mat-radio-button value="1">In the office</mat-radio-button>
+          <mat-radio-button value="0">Remotely</mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field class="full-width">
+          <mat-label>Date from</mat-label>
+          <input type="date_from" matInput formControlName="date_from"
+                 placeholder="date from"/>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Date to</mat-label>
+          <input type="date_to" matInput formControlName="date_to"
+                 placeholder="date to"/>
+        </mat-form-field>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+      <button class="btn btn-secondary" mat-dialog-close>Cancel</button>
+      <button  class="btn btn-secondary" [disabled]="!form.valid" (click)="form.valid && onSubmit()">Submit</button>
+      </mat-dialog-actions>
+</form>
+</div>

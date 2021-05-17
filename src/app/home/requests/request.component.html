@@ -1,0 +1,70 @@
+<div class="table-container" *ngIf="dataSource.data.length > 0">
+
+  <ng-container *ngIf="loading">
+    <div class="uploader-status">
+      <mat-spinner style="margin:0 auto;"></mat-spinner>
+    </div>
+  </ng-container>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="user_fk">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef>Type</th>
+    <td mat-cell *matCellDef="let element"> {{element['type'] | typePipe}}
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="date_from">
+    <th mat-header-cell *matHeaderCellDef>Date from</th>
+    <td mat-cell *matCellDef="let element"> {{datePipe.transform(element['date_from'], "dd-MMM-yyyy")}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="date_to">
+    <th mat-header-cell *matHeaderCellDef>Date to</th>
+    <td mat-cell *matCellDef="let element"> {{datePipe.transform(element['date_to'], "dd-MMM-yyyy")}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="user_fk">
+    <th mat-header-cell *matHeaderCellDef>Created by</th>
+    <td mat-cell *matCellDef="let element"> {{element?.user['first_name'] }} {{element?.user['last_name']}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="approved">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon
+        *ngIf="element.status === 'New'"
+        class="pointer"
+        matTooltip="Approve request"
+        aria-hidden="false"
+        (click)="approve(element)"
+      >pending_outline</mat-icon>
+      <mat-icon
+        *ngIf="element.status === 'Approved'"
+        class="pointer"
+        matTooltip="Approved"
+        aria-hidden="false"
+      >done</mat-icon>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon
+        class="pointer"
+        matTooltip="Delete request"
+        aria-label="delete"
+        aria-hidden="false"
+        (click)="delete(element.id)"
+      >delete_outline</mat-icon>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>

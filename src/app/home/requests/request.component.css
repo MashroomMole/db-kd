@@ -1,0 +1,32 @@
+.table {
+  width: 100%;
+}
+
+.table-container {
+  width: 100%;
+}
+
+.table-container .mat-column-type {
+  min-width: 120px;
+}
+
+.table-container .mat-column-date_from {
+  min-width: 100px;
+}
+
+.table-container .mat-column-date_to {
+  min-width: 100px;
+}
+
+.table-container .mat-column-user_fk {
+  min-width: 110px;
+}
+.table-container .mat-column-approve {
+  min-width: 30px;
+}
+.table-container .mat-column-approved {
+  min-width: 30px;
+}
+.table-container .mat-column-delete {
+  min-width: 30px;
+}
