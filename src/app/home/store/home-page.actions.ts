@@ -1,21 +1,17 @@
 import {createAction, props} from '@ngrx/store';
-import {RequestModel, ReservationModel, WorkplaceModel} from '../../shared/model/model';
+import {RequestModel, ReservationModel} from '../../shared/model/model';
 
 export enum HomePageActions {
   loadRequestsSuccess = '[Requests] load requests success',
   loadRequests = '[Requests] load requests',
   loadRequestsFailure = '[Requests] load requests failure',
   createRequest = '[Requests] create request',
-  createRequestSuccess = '[Requests] create request success',
   createRequestFailure = '[Requests] create request failure',
   updateRequest = '[Requests] update request',
   updateRequestFailure = '[Requests] update request failure',
   deleteRequest = '[Requests] delete request',
-  deleteRequestSuccess = '[Requests] delete request success',
   deleteRequestFailure = '[Requests] delete request failure',
   createReservation = '[Reservations] create reservation',
-  createReservationSuccess = '[Reservations] create reservation success',
-  createReservationFailure = '[Reservations] create reservation failure',
   updateReservation = '[Reservations] update reservation',
   updateReservationFailure = '[Requests] update reservation failure',
   loadReservationsSuccess = '[Reservations] load reservations success',
@@ -38,8 +34,6 @@ export const loadRequestsFailure = createAction(
 
 export const createRequest = createAction(HomePageActions.createRequest,
   props<{ request: RequestModel}>());
-export const createRequestSuccess = createAction(HomePageActions.createRequestSuccess,
-  props<{ request: RequestModel}>());
 export const createRequestFailure = createAction(
   HomePageActions.createRequestFailure,
   props< { error: string } >()
@@ -55,8 +49,6 @@ export const updateRequestFailure = createAction(
 
 export const deleteRequest = createAction(HomePageActions.deleteRequest,
   props<{ id: number}>());
-export const deleteRequestSuccess = createAction(HomePageActions.deleteRequestSuccess,
-  props<{id: number}>());
 export const deleteRequestFailure = createAction(
   HomePageActions.deleteRequestFailure,
   props< { error: string } >()
@@ -70,12 +62,6 @@ export const loadReservationsSuccess = createAction(
 
 export const createReservation = createAction(HomePageActions.createReservation,
   props<{ reservation: ReservationModel}>());
-export const createReservationSuccess = createAction(HomePageActions.createReservationSuccess,
-  props<{ reservation: ReservationModel}>());
-export const createReservationFailure = createAction(
-  HomePageActions.createReservationFailure,
-  props< { error: string } >()
-);
 export const updateReservation = createAction(HomePageActions.updateReservation,
   props<{ model: ReservationModel}>());
 export const updateReservationFailure = createAction(

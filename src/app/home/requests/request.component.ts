@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges} from '@angular/core';
-import { RequestModel } from '../../shared/model/model';
-import { Router } from '@angular/router';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {RequestModel} from '../../shared/model/model';
+import {Router} from '@angular/router';
 import {MatTableDataSource} from '@angular/material/table';
 import {DatePipe} from '@angular/common';
 

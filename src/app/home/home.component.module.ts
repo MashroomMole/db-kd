@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
-import {CommonModule, DatePipe} from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {HomeComponent} from './home.component';
@@ -26,10 +26,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {ResrvationDialogComponent} from './reservations/reservation-dialog/resrvation-dialog.component';
 import {MatSortModule} from '@angular/material/sort';
 import {AdminComponent} from '../admin/admin.component';
-import {SearchCriteriaComponent} from '../admin/search/search-criteria.component';
 import {DatePipe1} from './date-pipe';
 import {EquipmentModule} from './equipment/equipment.module';
-import {SearchModule} from "../admin/search/search.module";
+import {SearchModule} from '../admin/search/search.module';
 
 @NgModule({
   declarations: [

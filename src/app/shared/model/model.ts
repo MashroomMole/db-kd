@@ -24,13 +24,6 @@ export interface ReservationModel {
   resemployee_fk: string;
   resapprovedby_fk: string;
 }
-export interface CommentsModel {
-  postId: string;
-  commentId: string;
-  name: string;
-  email: string;
-  body: string;
-}
 
 export interface WorkplaceModel {
   id: string;

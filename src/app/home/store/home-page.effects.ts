@@ -25,8 +25,6 @@ import {
 import {AppState} from '../../store/reducers';
 import {RequestService} from '../../shared/services/request-service';
 import {ReservationService} from '../../shared/services/reservation-service';
-import {WorkplaceService} from '../../shared/services/workplace-service';
-import {DialogService} from '../../shared/services/dialog-service';
 
 /**
  * HomePageEffects - communicates with server via HTTP

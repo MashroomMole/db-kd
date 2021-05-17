@@ -16,7 +16,6 @@ const _reducer = createReducer(
   on(
     loadEquipmentSuccess,
     (state, action): EquipmentState => {
-      debugger;
       return {
         ...state,
         model: action.model,

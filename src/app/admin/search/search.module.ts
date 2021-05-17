@@ -17,9 +17,8 @@ import {searchReducer} from './store/search.reducer';
 import {SearchEffects} from './store/search.effects';
 import {SearchCriteriaComponent} from './search-criteria.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {AdminComponent} from '../admin.component';
 import {MatNativeDateModule} from '@angular/material/core';
-import {MatButtonModule} from "@angular/material/button";
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [ SearchCriteriaComponent ],

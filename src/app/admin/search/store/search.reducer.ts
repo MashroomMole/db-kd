@@ -16,7 +16,6 @@ const _reducer = createReducer(
   on(
     searchReservationsSuccess,
     (state, action): SearchState => {
-      debugger;
       return {
         ...state,
         result: action.result,

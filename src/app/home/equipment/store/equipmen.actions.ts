@@ -1,5 +1,5 @@
 import {createAction, props} from '@ngrx/store';
-import {WorkplaceModel} from "../../../shared/model/model";
+import {WorkplaceModel} from '../../../shared/model/model';
 
 export enum EquipmenActions {
   loadEquipmentSuccess = '[Equipment] load equipment details success',

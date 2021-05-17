@@ -1,4 +1,4 @@
-import {ReservationModel, WorkplaceModel} from '../../../shared/model/model';
+import {ReservationModel} from '../../../shared/model/model';
 
 export const SEARCH_FEATURE_KEY = 'SEARCH_STATE';
 

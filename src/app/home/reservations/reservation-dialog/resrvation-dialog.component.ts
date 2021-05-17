@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-request-dialog',
@@ -33,7 +33,7 @@ export class ResrvationDialogComponent implements OnInit{
       status: '',
       submission_date: '',
       date_from: '',
-      date_to:'',
+      date_to: '',
       workplace_fk: '',
       user_fk: '',
       approvedBy_fk: ''

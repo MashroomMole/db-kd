@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {EquipmentModel, RequestModel, ReservationModel} from '../shared/model/model';
+import {RequestModel, ReservationModel} from '../shared/model/model';
 import {forkJoin, Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {
@@ -16,7 +16,6 @@ import {Router} from '@angular/router';
 import {DialogService} from '../shared/services/dialog-service';
 import {RequestDialogComponent} from './requests/request-dialog/request-dialog.component';
 import {ResrvationDialogComponent} from './reservations/reservation-dialog/resrvation-dialog.component';
-import {selectEquipment} from './equipment/store/equipment.selectors';
 import {loadEquipment} from './equipment/store/equipmen.actions';
 import {EquipmentComponent} from './equipment/equipment.component';
 
@@ -32,7 +31,6 @@ import {EquipmentComponent} from './equipment/equipment.component';
 export class HomeComponent implements OnInit {
   public readonly requests$: Observable<RequestModel[]> = this.store.select(selectRequests);
   public readonly reservations$: Observable<ReservationModel[]> = this.store.select(selectReservations);
-  public readonly equipment$: Observable<Array<EquipmentModel>> = this.store.select(selectEquipment);
 
 
 
@@ -93,7 +91,6 @@ export class HomeComponent implements OnInit {
 
   public handleApprove(model: RequestModel): void {
     this.model = model;
-    console.log(this.model);
 
     this.store.dispatch(updateRequest( {model: this.model}
     ));

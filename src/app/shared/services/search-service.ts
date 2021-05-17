@@ -1,8 +1,6 @@
 import {Observable, throwError} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {RequestModel} from '../model/model';
-import {catchError} from 'rxjs/operators';
 
 const baseUrl = 'http://localhost:8080/api/search';
 
