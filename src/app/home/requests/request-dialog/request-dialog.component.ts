@@ -32,8 +32,8 @@ export class RequestDialogComponent implements OnInit{
       type: '',
       status: '',
       submission_date: '',
-      date_from: '2021-5-27',
-      date_to: '2021-6-27',
+      date_from: new Date(),
+      date_to: new Date(),
       user_fk: '2',
       approvedBy_fk: ''
 

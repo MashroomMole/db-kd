@@ -29,6 +29,7 @@ import {AdminComponent} from '../admin/admin.component';
 import {DatePipe1} from './date-pipe';
 import {EquipmentModule} from './equipment/equipment.module';
 import {SearchModule} from '../admin/search/search.module';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -43,26 +44,27 @@ import {SearchModule} from '../admin/search/search.module';
   ],
   exports: [
   ],
-    imports: [
-        StoreModule.forFeature(HOME_PAGE_FEATURE_KEY, homePageReducers),
-        EffectsModule.forFeature([HomePageEffects]),
-        CommonModule,
-        ReactiveFormsModule,
-        RouterModule,
-        MatPaginatorModule,
-        MatProgressSpinnerModule,
-        MatCardModule,
-        MatButtonModule,
-        MatTableModule,
-        MatDialogModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatRadioModule,
-        MatIconModule,
-        MatTooltipModule,
-        EquipmentModule,
-        MatSortModule,
-        SearchModule,
-    ]
+  imports: [
+    StoreModule.forFeature(HOME_PAGE_FEATURE_KEY, homePageReducers),
+    EffectsModule.forFeature([HomePageEffects]),
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatButtonModule,
+    MatTableModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatIconModule,
+    MatTooltipModule,
+    EquipmentModule,
+    MatSortModule,
+    SearchModule,
+    MatDatepickerModule,
+  ]
 })
 export class HomeComponentModule {}

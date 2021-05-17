@@ -4,22 +4,32 @@
     >
       <h1 mat-dialog-title>Please, submit your request</h1>
       <mat-dialog-content>
-        <mat-radio-group
-          aria-label="Select a work mode"
-          formControlName="type">
-          <mat-radio-button value="1">In the office</mat-radio-button>
-          <mat-radio-button value="0">Remotely</mat-radio-button>
-        </mat-radio-group>
-        <mat-form-field class="full-width">
-          <mat-label>Date from</mat-label>
-          <input type="date_from" matInput formControlName="date_from"
-                 placeholder="date from"/>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <mat-label>Date to</mat-label>
-          <input type="date_to" matInput formControlName="date_to"
-                 placeholder="date to"/>
-        </mat-form-field>
+        <div class="row">
+          <mat-radio-group
+            aria-label="Select a work mode"
+            formControlName="type">
+            <mat-radio-button value="1">In the office</mat-radio-button>
+            <mat-radio-button value="0">Remotely</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="row">
+          <mat-form-field appearance="fill">
+            <mat-label>From</mat-label>
+            <input matInput [matDatepicker]="pickerfrom">
+            <mat-datepicker-toggle matSuffix [for]="pickerfrom"></mat-datepicker-toggle>
+            <mat-datepicker #pickerfrom></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field appearance="fill">
+            <mat-label>to</mat-label>
+            <input matInput [matDatepicker]="pickerto">
+            <mat-datepicker-toggle matSuffix [for]="pickerto"></mat-datepicker-toggle>
+            <mat-datepicker #pickerto></mat-datepicker>
+          </mat-form-field>
+        </div>
+
       </mat-dialog-content>
       <mat-dialog-actions>
       <button class="btn btn-secondary" mat-dialog-close>Cancel</button>
