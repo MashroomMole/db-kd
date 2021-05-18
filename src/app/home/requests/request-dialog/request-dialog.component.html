@@ -4,12 +4,14 @@
     >
       <h1 mat-dialog-title>Please, submit your request</h1>
       <mat-dialog-content>
+        <div class="radio-buttons-container">
           <mat-radio-group
             aria-label="Select a work mode"
             formControlName="type">
             <mat-radio-button value="1" color="primary">In the office</mat-radio-button>
             <mat-radio-button value="0" color="primary">Remotely</mat-radio-button>
           </mat-radio-group>
+        </div>
 
         <div class="range">
           <mat-form-field appearance="fill">

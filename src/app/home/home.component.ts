@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
       this.store,
       RequestDialogComponent,
     0,
-    'auto',
+    '550px',
       'auto',
       false,
       false
