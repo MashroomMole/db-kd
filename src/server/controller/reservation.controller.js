@@ -66,7 +66,7 @@ exports.findAll = async (req, res) => {
          as: 'approvedBy'
        }
      ],
-       order: [['id', 'ASC']],
+       order: [['id', 'DESC']],
      }
    )
     .then(data => {

@@ -29,7 +29,7 @@ Request.findAll(
   {include: [
     {model: db.user}
     ],
-    order: [['id', 'ASC']],
+    order: [['id', 'DESC']],
   },
 
 )
