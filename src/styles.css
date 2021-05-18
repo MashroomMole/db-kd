@@ -6,7 +6,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .mat-dialog-title {
-  margin: 0px !important;
   color: lightslategray;
   font-weight: 200;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -18,6 +17,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   justify-content: space-between;
   align-items: flex-end;
 }
+
+.dialog-form form {
+  height: 100%;
+  width: 100%;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+.range {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 .full-width {
   width: 100%;
