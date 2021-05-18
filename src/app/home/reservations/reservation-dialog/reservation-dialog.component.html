@@ -4,22 +4,30 @@
     >
       <h1 mat-dialog-title>Please, submit your reservation</h1>
       <mat-dialog-content>
-        <mat-form-field>
-          <input matInput [ngxMatDatetimePicker]="pickerfrom" placeholder="Choose a date" formControlName="date_from">
-          <mat-datepicker-toggle matSuffix [for]="pickerfrom"></mat-datepicker-toggle>
-          <ngx-mat-datetime-picker #pickerfrom>
-          </ngx-mat-datetime-picker>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput [ngxMatDatetimePicker]="pickerto" placeholder="Choose a date" formControlName="date_to">
-          <mat-datepicker-toggle matSuffix [for]="pickerto"></mat-datepicker-toggle>
-          <ngx-mat-datetime-picker #pickerto>
-          </ngx-mat-datetime-picker>
+        <div class="range">
+          <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="pickerfrom" placeholder="Choose a date" formControlName="date_from">
+            <mat-datepicker-toggle matSuffix [for]="pickerfrom"></mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #pickerfrom>
+            </ngx-mat-datetime-picker>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="pickerto" placeholder="Choose a date" formControlName="date_to">
+            <mat-datepicker-toggle matSuffix [for]="pickerto"></mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #pickerto>
+            </ngx-mat-datetime-picker>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field class="full-width">
+          <mat-label>Room</mat-label>
+          <input type="text" matInput formControlName="room"
+                 placeholder="Room"/>
         </mat-form-field>
         <mat-form-field class="full-width">
-          <mat-label>Workplace</mat-label>
-          <input type="text" matInput formControlName="workplace_fk"
-                 placeholder="Workplace"/>
+          <mat-label>Desk</mat-label>
+          <input type="text" matInput formControlName="desk"
+                 placeholder="Desk"/>
         </mat-form-field>
       </mat-dialog-content>
       <mat-dialog-actions>

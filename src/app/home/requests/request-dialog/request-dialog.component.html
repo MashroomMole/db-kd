@@ -4,33 +4,29 @@
     >
       <h1 mat-dialog-title>Please, submit your request</h1>
       <mat-dialog-content>
-        <div class="row">
           <mat-radio-group
             aria-label="Select a work mode"
             formControlName="type">
             <mat-radio-button value="1">In the office</mat-radio-button>
             <mat-radio-button value="0">Remotely</mat-radio-button>
           </mat-radio-group>
-        </div>
 
-        <div class="row">
+        <div class="range">
           <mat-form-field appearance="fill">
             <mat-label>From</mat-label>
-            <input matInput [matDatepicker]="pickerfrom">
+            <input matInput [matDatepicker]="pickerfrom" formControlName="date_from">
             <mat-datepicker-toggle matSuffix [for]="pickerfrom"></mat-datepicker-toggle>
             <mat-datepicker #pickerfrom></mat-datepicker>
           </mat-form-field>
-        </div>
-        <div class="row">
           <mat-form-field appearance="fill">
             <mat-label>to</mat-label>
-            <input matInput [matDatepicker]="pickerto">
+            <input matInput [matDatepicker]="pickerto" formControlName="date_to">
             <mat-datepicker-toggle matSuffix [for]="pickerto"></mat-datepicker-toggle>
             <mat-datepicker #pickerto></mat-datepicker>
           </mat-form-field>
         </div>
-
       </mat-dialog-content>
+
       <mat-dialog-actions>
       <button class="btn btn-secondary" mat-dialog-close>Cancel</button>
       <button  class="btn btn-secondary" [disabled]="!form.valid" (click)="form.valid && onSubmit()">Submit</button>

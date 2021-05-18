@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
       this.store,
       ResrvationDialogComponent,
       1,
-      'auto',
+      '500px',
       'auto',
       false,
       false

@@ -34,7 +34,8 @@ export class ResrvationDialogComponent implements OnInit{
       submission_date: '',
       date_from: '',
       date_to: '',
-      workplace_fk: '',
+      room: '',
+      desk: '',
       user_fk: '',
       approvedBy_fk: ''
     });

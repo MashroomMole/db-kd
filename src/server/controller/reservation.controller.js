@@ -1,37 +1,40 @@
 const db = require("../index");
 const {Op} = require("sequelize");
 const Reservation = db.reservation;
+const Workplace = db.workplace;
 
 // Create and Save a new Reservation
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
 
-  const reservation = {
-    type: req.body.type,
-    status: 'New',
-    submission_date: db.sequelize.literal('CURRENT_TIMESTAMP'),
-    requested_for: [
-      new Date (req.body.date_from),
-      new Date (req.body.date_to)
-      ],
-    workplace_fk: req.body.workplace_fk,
-    resemployee_fk: 9,
-    resapprovedby_fk: req.body.resapprovedby_fk
-  }
-
-  Reservation.create(reservation)
-    .then(data => {
-      console.log('datatatata', data)
-
-      res.send(data);
+  await Workplace.findOne({
+    where: {
+      room: req.body.room, desk: req.body.desk
+    }
+  }).then(res => {
+      if (res) {
+        return Reservation.create({
+          type: req.body.type,
+          status: 'New',
+          submission_date: db.sequelize.literal('CURRENT_TIMESTAMP'),
+          requested_for: [
+            new Date(req.body.date_from),
+            new Date(req.body.date_to)
+          ],
+          resemployee_fk: 9,
+          resapprovedby_fk: req.body.resapprovedby_fk,
+          workplace_fk: res.get("id")
+        })
+      }
     })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred"
+      .then(data => {
+        res.send(data);
       })
-    })
-
-
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred"
+        })
+      })
 };
 
 // Retrieve all Reservations from the database.
@@ -152,7 +155,7 @@ await Reservation.findAll(
     {
       where: {
         requested_for: {
-          [Op.contained]: [
+          [Op.overlap]: [
             new Date(req.body.date_from),
             new Date(req.body.date_to)
           ]

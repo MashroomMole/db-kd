@@ -28,8 +28,10 @@ exports.findAll = (req, res) => {
 Request.findAll(
   {include: [
     {model: db.user}
-    ]
-  }
+    ],
+    order: [['id', 'ASC']],
+  },
+
 )
   .then(data => {
     res.send(data);

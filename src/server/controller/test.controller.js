@@ -9,11 +9,8 @@ exports.create = (req, res) => {
     status: req.body.status
   }
 
-// console.log(req)
   Test.create(test)
     .then(data => {
-      console.log('datatatata', data)
-
       res.send(data);
     })
     .catch(err => {
