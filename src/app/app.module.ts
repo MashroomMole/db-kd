@@ -14,7 +14,7 @@ import {RouterParamSerializer} from './store/router/router';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import {reducers} from './store/reducers';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {RequestService} from './shared/services/request-service';
+import {HttpService} from './shared/services/http.service';
 import {AppRoutingModule} from './app-routing.module';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -43,7 +43,7 @@ import {DialogService} from './shared/services/dialog-service';
         MatButtonModule,
     ],
     providers: [
-        RequestService,
+        HttpService,
         DialogService,
         DatePipe
     ],

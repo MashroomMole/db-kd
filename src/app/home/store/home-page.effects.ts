@@ -23,8 +23,7 @@ import {
   updateReservationFailure
 } from './home-page.actions';
 import {AppState} from '../../store/reducers';
-import {RequestService} from '../../shared/services/request-service';
-import {ReservationService} from '../../shared/services/reservation-service';
+import {HttpService} from '../../shared/services/http.service';
 
 /**
  * HomePageEffects - communicates with server via HTTP
@@ -39,7 +38,7 @@ export class HomePageEffects {
       .pipe(
         ofType(loadRequests),
         switchMap(() => {
-          return this.requestService.getAll()
+          return this.service.getAllRequests()
             .pipe(
               map(requests => {
                 return loadRequestsSuccess({requests});
@@ -58,7 +57,7 @@ export class HomePageEffects {
       .pipe(
         ofType(loadReservations),
         switchMap(() => {
-          return this.reservationService.getAll()
+          return this.service.getAllReservations()
             .pipe(
               map(reservations => {
                 return loadReservationsSuccess({reservations});
@@ -77,7 +76,7 @@ export class HomePageEffects {
       .pipe(
         ofType(createRequest),
         switchMap(action =>
-          this.requestService.create(action.request)
+          this.service.createRequest(action.request)
             .pipe(
               map(() => {
                 return loadRequests();
@@ -95,7 +94,7 @@ export class HomePageEffects {
       .pipe(
         ofType(updateRequest),
         switchMap(action =>
-          this.requestService.update(action.model)
+          this.service.updateRequest(action.model)
             .pipe(
               map(() => {
                 return loadRequests();
@@ -113,7 +112,7 @@ export class HomePageEffects {
       .pipe(
         ofType(deleteRequest),
         switchMap(action =>
-          this.requestService.delete(action.id)
+          this.service.deleteRequest(action.id)
             .pipe(
               map(() => {
                 return loadRequests();
@@ -131,7 +130,7 @@ export class HomePageEffects {
       .pipe(
         ofType(createReservation),
         switchMap(action =>
-          this.reservationService.create(action.reservation)
+          this.service.createReservation(action.reservation)
             .pipe(
               map(() => {
                 return loadReservations();
@@ -149,7 +148,7 @@ export class HomePageEffects {
       .pipe(
         ofType(updateReservation),
         switchMap(action =>
-          this.reservationService.update(action.model)
+          this.service.updateReservation(action.model)
             .pipe(
               map(() => {
                 return loadReservations();
@@ -168,7 +167,7 @@ export class HomePageEffects {
       .pipe(
         ofType(deleteReservation),
         switchMap(action =>
-          this.reservationService.delete(action.id)
+          this.service.deleteReservation(action.id)
             .pipe(
               map(() => {
                 return loadReservations();
@@ -181,7 +180,6 @@ export class HomePageEffects {
   constructor(
     private actions$: Actions,
     private store: Store<AppState>,
-    private requestService: RequestService,
-    private reservationService: ReservationService,
+    private service: HttpService,
   ) {}
 }

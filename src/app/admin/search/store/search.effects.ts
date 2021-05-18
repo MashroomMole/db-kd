@@ -5,7 +5,7 @@ import {Store} from '@ngrx/store';
 import {of} from 'rxjs';
 import {searchReservations, searchReservationsFailure, searchReservationsSuccess} from './search.actions';
 import {AppState} from '../../../store/reducers';
-import {SearchService} from '../../../shared/services/search-service';
+import {HttpService} from '../../../shared/services/http.service';
 
 /**
  * equipmentEffects - communicates with server via HTTP
@@ -20,7 +20,7 @@ export class SearchEffects {
       .pipe(
         ofType(searchReservations),
         switchMap((action) =>
-          this.searchService.search(action.model).pipe(
+          this.service.search(action.model).pipe(
             map( (response) => {
               return searchReservationsSuccess({result: response});
             }),
@@ -33,7 +33,7 @@ export class SearchEffects {
   constructor(
     private actions$: Actions,
     private store: Store<AppState>,
-    private searchService: SearchService,
+    private service: HttpService,
   ) {}
 
 }

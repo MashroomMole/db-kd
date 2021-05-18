@@ -30,6 +30,11 @@ import {DatePipe1} from './date-pipe';
 import {EquipmentModule} from './equipment/equipment.module';
 import {SearchModule} from '../admin/search/search.module';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from '@angular-material-components/datetime-picker';
 
 @NgModule({
   declarations: [
@@ -65,6 +70,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatSortModule,
     SearchModule,
     MatDatepickerModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule
+
   ]
 })
 export class HomeComponentModule {}

@@ -4,19 +4,21 @@
     >
       <h1 mat-dialog-title>Please, submit your reservation</h1>
       <mat-dialog-content>
-        <mat-form-field class="full-width">
-          <mat-label>Date from</mat-label>
-          <input type="date_from" matInput formControlName="date_from"
-                 placeholder="date from"/>
+        <mat-form-field>
+          <input matInput [ngxMatDatetimePicker]="pickerfrom" placeholder="Choose a date" formControlName="date_from">
+          <mat-datepicker-toggle matSuffix [for]="pickerfrom"></mat-datepicker-toggle>
+          <ngx-mat-datetime-picker #pickerfrom>
+          </ngx-mat-datetime-picker>
         </mat-form-field>
-        <mat-form-field class="full-width">
-          <mat-label>Date to</mat-label>
-          <input type="date_to" matInput formControlName="date_to"
-                 placeholder="date to"/>
+        <mat-form-field>
+          <input matInput [ngxMatDatetimePicker]="pickerto" placeholder="Choose a date" formControlName="date_to">
+          <mat-datepicker-toggle matSuffix [for]="pickerto"></mat-datepicker-toggle>
+          <ngx-mat-datetime-picker #pickerto>
+          </ngx-mat-datetime-picker>
         </mat-form-field>
         <mat-form-field class="full-width">
           <mat-label>Workplace</mat-label>
-          <input type="workplace_fk" matInput formControlName="workplace_fk"
+          <input type="text" matInput formControlName="workplace_fk"
                  placeholder="Workplace"/>
         </mat-form-field>
       </mat-dialog-content>
