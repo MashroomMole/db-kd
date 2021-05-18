@@ -83,7 +83,6 @@ exports.update = async (req, res) => {
 )
       .then(data => {
         res.send(data);
-        console.log('datatatata', data)
         console.log("Request has been updated: ", JSON.stringify(data, null, 4));
       })
       .catch(err => {

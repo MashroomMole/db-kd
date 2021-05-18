@@ -36,12 +36,14 @@ export class DialogService {
       .pipe(
         map(
           (result) => {
-            if (page === 1 ) {
-              store.dispatch(createReservation({reservation: result}));
-
-            }
-            else {
-              store.dispatch(createRequest({request: result}));
+            if (result) {
+              switch (page) {
+                case 1:
+                  store.dispatch(createReservation({reservation: result}));
+                  break;
+                case 0:
+                  store.dispatch(createRequest({request: result}));
+              }
             }
           }
         )

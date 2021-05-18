@@ -1,9 +1,5 @@
 const db = require("../index");
 const {QueryTypes} = require("sequelize");
-const Request = db.request;
-const Reservation = db.reservation;
-const Test = db.test;
-
 
 exports.findAll = async (req, res) => {
 
@@ -49,27 +45,4 @@ exports.findAll = async (req, res) => {
   //         err.message || "Some error occurred"
   //     })
   //   })
-
-//   await db.sequelize.query(
-//     'SELECT * FROM "reservation"',
-//     {
-//       logging: console.log,
-//       type: QueryTypes.SELECT,
-//       raw: true,
-//
-//     })
-//     .then(
-//       flatData => {
-//         console.log(flatData)
-//       res.send(flatData);
-//       console.log("All reservations and Requests:", JSON.stringify(data, null, 4));
-//     }
-//   )
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred"
-//       })
-//     })
 // };

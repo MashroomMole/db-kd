@@ -1,14 +1,13 @@
 const db = require("../index");
 const Equipment = db.position;
 
-// Create and Save a new Tutorial
+// Create and Save a new Position
 exports.create = (req, res) => {
 
   const equipment = {
     description: req.body.description,
   }
 
-// console.log(req)
   Equipment.create(equipment)
     .then(data => {
       console.log('datatatata', data)
