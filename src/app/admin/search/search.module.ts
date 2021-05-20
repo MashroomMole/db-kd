@@ -15,16 +15,18 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {searchReducer} from './store/search.reducer';
 import {SearchEffects} from './store/search.effects';
-import {SearchCriteriaComponent} from './search-criteria.component';
+import {ReservationSearchCriteriaComponent} from './reservation-search-criteria.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
+import {RequestSearchCriteriaComponent} from './request-search-criteria.component';
 
 @NgModule({
-  declarations: [ SearchCriteriaComponent ],
-  exports: [
-    SearchCriteriaComponent
-  ],
+  declarations: [ ReservationSearchCriteriaComponent, RequestSearchCriteriaComponent ],
+    exports: [
+        ReservationSearchCriteriaComponent,
+        RequestSearchCriteriaComponent
+    ],
   imports: [
     StoreModule.forFeature(SEARCH_FEATURE_KEY, searchReducer),
     EffectsModule.forFeature([SearchEffects]),

@@ -8,18 +8,24 @@
   clear: both;
 }
 
-.search-container{
+.admin-container{
   width: 100%;
   display: flex;
 }
 
-.criteria {
-
+.admin-container:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.result {
-
+.column {
+  justify-content: center;
+  /*float: left;*/
+  width: 100%;
+  align-content: center;
 }
+
 mat-card.mat-card.mat-focus-indicator.search-container {
   height: 900px;
   background-color: #faf9f7;

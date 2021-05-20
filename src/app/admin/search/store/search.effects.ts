@@ -3,7 +3,13 @@ import {catchError, map, switchMap} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {of} from 'rxjs';
-import {searchReservations, searchReservationsFailure, searchReservationsSuccess} from './search.actions';
+import {
+  searchRequests, searchRequestsFailure,
+  searchRequestsSuccess,
+  searchReservations,
+  searchReservationsFailure,
+  searchReservationsSuccess
+} from './search.actions';
 import {AppState} from '../../../store/reducers';
 import {HttpService} from '../../../shared/services/http.service';
 
@@ -20,7 +26,7 @@ export class SearchEffects {
       .pipe(
         ofType(searchReservations),
         switchMap((action) =>
-          this.service.search(action.model).pipe(
+          this.service.searchReservations(action.model).pipe(
             map( (response) => {
               return searchReservationsSuccess({result: response});
             }),
@@ -28,6 +34,24 @@ export class SearchEffects {
             )
           )
         );
+  });
+
+  /**
+   * Search requests
+   */
+  public searchRequests$ = createEffect(() => {
+    return this.actions$
+      .pipe(
+        ofType(searchRequests),
+        switchMap((action) =>
+          this.service.searchRequests(action.model).pipe(
+            map( (response) => {
+              return searchRequestsSuccess({result: response});
+            }),
+            catchError(error => of(searchRequestsFailure({error})))
+          )
+        )
+      );
   });
 
   constructor(

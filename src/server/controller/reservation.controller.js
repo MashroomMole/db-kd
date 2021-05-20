@@ -150,8 +150,10 @@ exports.delete = async (req, res) => {
 
 // Searches for Reservations within data range.
 exports.findByRange = async (req, res) => {
+  if (!req.body.type) {
 
-await Reservation.findAll(
+
+    await Reservation.findAll(
     {
       where: {
         requested_for: {
@@ -193,5 +195,6 @@ await Reservation.findAll(
           err.message || "Some error occurred"
       })
     })
+    }
 }
 

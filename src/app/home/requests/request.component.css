@@ -7,15 +7,15 @@
 }
 
 .table-container .mat-column-type {
-  min-width: 120px;
+  min-width: 150px;
 }
 
 .table-container .mat-column-date_from {
-  min-width: 100px;
+  min-width: 150px;
 }
 
 .table-container .mat-column-date_to {
-  min-width: 100px;
+  min-width: 150px;
 }
 
 .table-container .mat-column-user_fk {
@@ -30,3 +30,13 @@
 .table-container .mat-column-delete {
   min-width: 30px;
 }
+.text {
+  color: #666666;
+  font-weight: 200;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-bottom: 50px;
+}
+.mat-card>:last-child:not(.mat-card-footer), .mat-card-content>:last-child {
+  margin: 0 18px 0 0;
+}
+

@@ -68,3 +68,12 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 </div>
+
+<ng-container *ngIf="dataSource.data.length === 0">
+  <mat-card>
+    <mat-card-content>
+      <span class="text">There is no data to display
+      </span></mat-card-content>
+  </mat-card>
+</ng-container>
+

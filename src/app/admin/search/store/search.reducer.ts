@@ -1,6 +1,12 @@
 import {Action, createReducer, on} from '@ngrx/store';
 import {SearchState, searchtInitialState} from './state';
-import {searchReservations, searchReservationsFailure, searchReservationsSuccess} from './search.actions';
+import {
+  searchRequests,
+  searchRequestsSuccess,
+  searchReservations,
+  searchReservationsFailure,
+  searchReservationsSuccess
+} from './search.actions';
 
 
 // tslint:disable-next-line:variable-name
@@ -18,7 +24,30 @@ const _reducer = createReducer(
     (state, action): SearchState => {
       return {
         ...state,
-        result: action.result,
+        resultRes: action.result,
+        loading: false
+      };
+    }
+  ),
+  on(searchReservationsFailure, (state, action): SearchState => {
+    return {
+      ...state,
+      error: action.error,
+    };
+  }),
+  on(searchRequests,
+    (state): SearchState => {
+      return {
+        ...state,
+        loading: true
+      };
+    }),
+  on(
+    searchRequestsSuccess,
+    (state, action): SearchState => {
+      return {
+        ...state,
+        resultReq: action.result,
         loading: false
       };
     }

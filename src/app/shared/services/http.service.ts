@@ -7,7 +7,8 @@ import {catchError} from 'rxjs/operators';
 enum BaseUrls {
   reservationUrl = 'http://localhost:8080/api/reservations',
   requestUrl = 'http://localhost:8080/api/req',
-  searchUrl = 'http://localhost:8080/api/search',
+  searchResUrl = 'http://localhost:8080/api/search/reservations',
+  searchReqUrl = 'http://localhost:8080/api/search/req',
   workplaceUrl = 'http://localhost:8080/api/workplace'
 }
 
@@ -59,8 +60,12 @@ export class HttpService {
     return this.http.get(`${BaseUrls.workplaceUrl}/${id}`);
   }
 
-  search(data): Observable<any> {
-    return this.http.post(`${BaseUrls.searchUrl}`, data);
+  searchReservations(data): Observable<any> {
+    return this.http.post(`${BaseUrls.searchResUrl}`, data);
+  }
+
+  searchRequests(data): Observable<any> {
+    return this.http.post(`${BaseUrls.searchReqUrl}`, data);
   }
 
 

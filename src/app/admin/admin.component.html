@@ -1,4 +1,6 @@
-    <mat-card class="search-container"
+<div class="admin-container">
+<div class="column">
+<mat-card class="search-container"
     >
       <mat-card-content>
         <div class="criteria">
@@ -8,11 +10,29 @@
 
         <div class="result">
           <app-reservations
-            [result]="searchResult$ | async"
+            [result]="searchResResult$ | async"
             [loading]="loading$ | async">
           </app-reservations>
         </div>
       </mat-card-content>
-
-
     </mat-card>
+</div>
+
+<div class="column">
+    <mat-card class="search-container"
+    >
+      <mat-card-content>
+        <div class="criteria">
+          <app-request-search-criteria>
+          </app-request-search-criteria>
+        </div>
+        <div class="result">
+          <app-requests
+            [resultRequest]="searchReqResult$ | async"
+            [loading]="loading$ | async">
+          </app-requests>
+        </div>
+      </mat-card-content>
+    </mat-card>
+</div>
+</div>

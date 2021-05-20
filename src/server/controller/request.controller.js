@@ -1,4 +1,6 @@
 const db = require("../index");
+const {Op} = require("sequelize");
+
 const Request = db.request;
 
 // Create and Save a new Request
@@ -114,3 +116,41 @@ exports.delete = async (req, res) => {
       })
     });
 };
+
+exports.findByRange = async (req, res) => {
+    if (req.body.type) {
+      await Request.findAll(
+        {
+          where: {
+            type: req.body.type,
+            [Op.or]: [{
+              date_from: {
+                [Op.between]: [req.body.date_from, req.body.date_to]
+              },
+              date_to: {
+                [Op.between]: [req.body.date_from, req.body.date_to]
+              }
+            }]
+          },
+          include: [
+            {
+              model: db.user,
+              attributes: ['first_name', 'last_name']
+            }
+          ]
+        }
+      )
+        .then(data => {
+          res.send(data);
+          console.log("All requests:", JSON.stringify(data, null, 4));
+
+        })
+        .catch(err => {
+          res.status(500).send({
+            message:
+              err.message || "Some error occurred"
+          })
+        })
+    }
+
+}

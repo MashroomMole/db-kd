@@ -17,10 +17,11 @@ export class RequestComponent implements OnChanges{
   public requests: Array<RequestModel>;
   @Input()
   public loading: boolean;
+  @Input()
+  public resultRequest: Array<RequestModel>;
 
   @Output()
   public deleteAction: EventEmitter<number> = new EventEmitter<number>();
-
   @Output()
   public approveAction: EventEmitter<RequestModel> = new EventEmitter<RequestModel>();
 
@@ -34,6 +35,9 @@ export class RequestComponent implements OnChanges{
 public ngOnChanges(changes: SimpleChanges): void {
   if ('requests' in changes) {
     this.dataSource = new MatTableDataSource(this.requests);
+  }
+  if ('resultRequest' in changes) {
+    this.dataSource = new MatTableDataSource(this.resultRequest);
   }
 }
   public approve(model: RequestModel): void {

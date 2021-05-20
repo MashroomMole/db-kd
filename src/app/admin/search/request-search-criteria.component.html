@@ -1,0 +1,42 @@
+<div class="search-criteria-container">
+  <div class="column">
+    <mat-card style="height: 239px">
+      <div class="header-container">
+        <mat-card-header>
+          <mat-card-title>Search for requests within</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content [formGroup]="form">
+          <div class="search-criteria-form">
+            <div class="radio-buttons-container">
+              <mat-radio-group
+                aria-label="Select a work mode"
+                formControlName="type">
+                <mat-radio-button value="1" color="primary">In the office</mat-radio-button>
+                <mat-radio-button value="0" color="primary" [checked]="true">Remotely</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="range">
+              <mat-form-field appearance="fill">
+                <mat-label>From</mat-label>
+                <input matInput [matDatepicker]="pickerfrom" formControlName="date_from">
+                <mat-datepicker-toggle matSuffix [for]="pickerfrom"></mat-datepicker-toggle>
+                <mat-datepicker #pickerfrom></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>to</mat-label>
+                <input matInput [matDatepicker]="pickerto" formControlName="date_to">
+                <mat-datepicker-toggle matSuffix [for]="pickerto"></mat-datepicker-toggle>
+                <mat-datepicker #pickerto></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="onSearch()">SEARCH</button>
+        </mat-card-actions>
+      </div>
+    </mat-card>
+  </div>
+</div>

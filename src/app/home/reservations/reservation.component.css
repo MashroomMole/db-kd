@@ -7,15 +7,17 @@
 }
 
 .table-container .mat-column-workplace_fk {
-  max-width: 100px;
+  min-width: 100px;
+  max-width: 150px;
 }
 
 .table-container .mat-column-requested_for {
-  min-width: 190px;
+  min-width: 300px;
+  max-width: 450px;
 }
 
 .table-container .mat-column-resemployee_fk {
-  min-width: 120px;
+  min-width: 150px;
 }
 .table-container .mat-column-approve {
   min-width: 30px;
