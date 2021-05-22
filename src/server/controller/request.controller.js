@@ -118,7 +118,6 @@ exports.delete = async (req, res) => {
 };
 
 exports.findByRange = async (req, res) => {
-    if (req.body.type) {
       await Request.findAll(
         {
           where: {
@@ -151,6 +150,5 @@ exports.findByRange = async (req, res) => {
               err.message || "Some error occurred"
           })
         })
-    }
 
 }
